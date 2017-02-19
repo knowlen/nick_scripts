@@ -11,7 +11,8 @@ Load this bad boy up and run __$nk_dispatch "pkill firefox"__
 ##### install
 ```bash
 $git clone https://github.com/knowlen/nick_scripts.git     
-$./nick_scripts/SSH_dispatch.sh install     
+$cd ./nick_scripts     
+$./SSH_dispatch.sh install
 $rm -rf ./nick_scripts
 $nk_dispatch
 ```  
