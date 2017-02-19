@@ -55,8 +55,9 @@ Usage: $./SSH_dispatch [OPTIONS] "command to run"
         HELP=$HELP' 
  install      Installs the nk_dispatch tool and all of its glory.
               The nk_dispatch tool propegates bash commands to every available
-              machine
+              machine accross the CF building at WWU.
                Usage/Example: $./SSH_dispatch install 
+                              $ nk_dispatch [OPTIONS] "command"
                    '
     fi  
 fi
