@@ -1,13 +1,13 @@
 ### nick_scripts
 This is a repository to house simple, but useful scripts I've created for myself or friends.   
 (mostly WWU related productivity hacks)  
-Run any script with a -h flag for a usage guide. 
-
+Run any script with a -h flag for a usage guide.  
+Disclaimer: These scripts are often brute force solutions to problems I want to solve in the moment. If you try to read the code, it's going to reflect that. 90% of the time I will spend on this repo will go towards documentation.  
 
 #### SSH_dispatch.sh
 A general purpose script that broadcasts a Bash command to every machine on the CS department network at Western Washington University.
  Forced to use Chromium because you forgot to close Firefox at some point in your undergraduate career? Well not anymore! 
-Load this badboy up and run __$nk_dispatch "pkill firefox"__  
+Load this bad boy up and run __$nk_dispatch "pkill firefox"__  
 ##### install
 ```bash
 $git clone https://github.com/knowlen/nick_scripts.git     
