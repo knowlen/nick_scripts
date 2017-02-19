@@ -79,7 +79,7 @@ ssh_dispatch   This script installs the nk_dispatch tool, but can
 fi
 
 
-#create a hidden dir ~/.ssh_dispatch and coppy this script into there as nk_dispatch
+#create a hidden dir ~/.nk_dispatch and coppy this script into there as nk_dispatch
 #then  export PATH=$PATH:$~/.nk_dispatch/nk_dispatch
 # INSTALL argument [install]
 if [ $ARG == "install" ]; then
@@ -88,7 +88,7 @@ if [ $ARG == "install" ]; then
     echo "Appending last_nodes logic to .bashrc..."
     echo 'NODE=$(uname -n)' >> ~/.bashrc
     echo 'if [ $NODE != $(tail -n 1 .last_nodes.txt) ];then' >> ~/.bashrc
-    echo '       uname -n >> ~/.ssh_dispatch/.nk_dispatch/.last_nodes.txt &' >> ~/.bashrc
+    echo '       uname -n >> ~/.nk_dispatch/.last_nodes.txt &' >> ~/.bashrc
     echo 'fi' >> ~/.bashrc
     echo "building dependencies..."
     mkdir $BUILD_PATH
