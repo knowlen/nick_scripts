@@ -52,7 +52,7 @@ else
 fi
 # hutch_research student
 if [ "$x" == "408" ]; then
-    x="cf408-hut"
+    x="408-hut"
 fi
 
 NODE="$(uname -n)"
