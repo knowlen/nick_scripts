@@ -19,4 +19,4 @@ $nk_dispatch
 Most of the core functionality will work out of the box with just the script (eg; $./SSH_dispatch.sh "pkill firefox" will still kill every instance of firefox you're running on the network), installing this just allows you to call nk_dispatch from anywhere & keeps a list of your last used machines so you can do things like __$nk_dispatch --last 4 "kill -9 -1"__ to nuke all jobs on the last 4 machines you used.  
 
 #### Easy_SSH
-A simple interface for SSH that makes getting to whatever node you're trying to get to at WWU a little faster. You can also run __$./Easy_SSH install__ on this one and call commands like  __$easy_ssh 405 08__ to immediatley access machine 8 in CF405, even from your home computer! _(assuming you have Bash, Windows 10 and every other OS has bash -fyi)_. 
+A simple interface for SSH that makes getting to whatever node you're trying to get to at WWU a little faster. You can also run __$./Easy_SSH install__ on this one and call commands like  __$easy_ssh 405 08__ to immediatley access machine 8 in CF405 from anywhere, even from your home computer! _(assuming you have Bash, Windows 10 and every other OS has bash -fyi)_. 
