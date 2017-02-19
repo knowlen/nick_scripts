@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Author: Nick Knowles (knowlen@wwu.edu, github.com/knowlen)
 # Date: Winter 2017
 # 
@@ -5,15 +7,21 @@
 # from node A to node B on the WWU CS dept 
 # network a little quicker.
 #
-#
 
 if [ "$1" == "-h" ]; then
+    echo
     echo "Easy SSH (h)  A quick SSH interface to use within the Computer Science 
               department at Western Washington University 
     "
-    echo "Usage: ./Easy_SSH.sh"
-    echo "Usage (first time from personal computer): ./Easy_SSH.sh 'CS username'"
-    echo "NOTE: The script remembers username after first use."
+    echo "Usage (cli): $./Easy_SSH.sh [room] [machine]"
+    echo " Example: $./Easy_SSH.sh 405 08
+    "
+    echo "Usage (interactive): $./Easy_SSH.sh
+    "
+    echo "Usage (first time from personal computer): $./Easy_SSH.sh [CS username]"
+    echo " Example: $./Easy_SSH.sh sanchezR132"
+    echo " NOTE: The script remembers username after first use.
+    "
     echo " 
    OPTIONS:
    install  Adds the program to your path as 'easy_ssh' so it can be called
@@ -25,11 +33,23 @@ if [ "$1" == "-h" ]; then
     exit
 fi
 
-echo -n "room #: "
-read x
-echo -n "pc #: "
-read y
-
+if [ "$1" == "install" ]; then
+    mkdir ~/.easy_ssh
+    cp ./Easy_SSH.sh ~/.easy_ssh/easy_ssh
+    echo "export PATH=\$PATH:/home/$(whoami)/.easy_ssh" >> ~/.bashrc
+    echo "done."
+    echo 'Usage: $easy_ssh '
+    exit
+fi
+if [ $# -lt 2 ]; then
+    echo -n "room #: "
+    read x
+    echo -n "pc #: "
+    read y
+else
+    x=$1
+    y=$2
+fi
 # hutch_research student
 if [ "$x" == "408" ]; then
     x="cf408-hut"
