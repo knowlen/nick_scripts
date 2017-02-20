@@ -105,7 +105,7 @@ if [ $ARG == "install" ]; then
     sed -i "1s/^/nk_dispatch\nAuthor: Nick Knowles (knowlen@wwu.edu)\nDate: Feb 18, 2017\n\nA general purpose tool used to distribute Bash commands\naccross a selected range of computers within the Computer Science\ndepartment's network at Western Washington University.\neg; (405 lab, 162 lab, ect..)\n/" $BUILD_PATH/readme.txt
     echo "Adding nk_dispatch to your path...."
     echo "export PATH=\$PATH:/home/$(whoami)/.nk_dispatch" >> ~/.bashrc
-    echo "export PATH=\$PATH:/home/$(whoami)/.nk_dispatch" >> ~/.bashrc 
+    echo "export PATH=\$PATH:/home/$(whoami)/.nk_dispatch" >> ~/.bash_profile 
     cp ./SSH_dispatch.sh $BUILD_PATH/nk_dispatch
     chmod +x $BUILD_PATH/nk_dispatch
     source ~/.bashrc
