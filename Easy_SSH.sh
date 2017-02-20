@@ -50,6 +50,7 @@ else
     x=$1
     y=$2
 fi
+
 # hutch_research student
 if [ "$x" == "408" ]; then
     x="408-hut"
@@ -63,9 +64,11 @@ if [[ $NODE == "cf408-"* ]]; then
  ssh -t -p922 $(whoami)@linux.cs.wwu.edu ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
  exit
 fi
-
+if [[ $NODE == "cf"* || $NODE == "linux"* ]]; then 
+    ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
+    exit
+else
 # if on a personal computer 
-if [[ $NODE != "cf*-*" && $NODE != "linux-*"  ]]; then
     file="./.SSH_last_uname.txt"
     if [ -z ${1+x} ]; then
         if [ -e "$file" ]; then
@@ -83,8 +86,6 @@ if [[ $NODE != "cf*-*" && $NODE != "linux-*"  ]]; then
     exit 
 
 # on a normal lab computer
-else
-    ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
 fi
 
 
