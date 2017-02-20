@@ -87,9 +87,13 @@ if [ $ARG == "install" ]; then
     exec 2>/dev/null
     echo "Appending last_nodes logic to .bashrc..."
     echo 'NODE=$(uname -n)' >> ~/.bashrc
-    echo 'if [ $NODE != $(tail -n 1 .last_nodes.txt) ];then' >> ~/.bashrc
+    echo 'if [[ $NODE != $(tail -n 1 .last_nodes.txt) ]];then' >> ~/.bashrc
     echo '       uname -n >> ~/.nk_dispatch/.last_nodes.txt &' >> ~/.bashrc
     echo 'fi' >> ~/.bashrc
+    echo 'NODE=$(uname -n)' >> ~/.bash_profile
+    echo 'if [[ $NODE != $(tail -n 1 .last_nodes.txt) ]];then' >> ~/.bash_profile
+    echo '       uname -n >> ~/.nk_dispatch/.last_nodes.txt &' >> ~/.bash_profile
+    echo 'fi' >> ~/.bash_profile
     echo "building dependencies..."
     mkdir $BUILD_PATH
     echo $(hostname) >> ~/.nk_dispatch/.last_nodes.txt
@@ -101,6 +105,7 @@ if [ $ARG == "install" ]; then
     sed -i "1s/^/nk_dispatch\nAuthor: Nick Knowles (knowlen@wwu.edu)\nDate: Feb 18, 2017\n\nA general purpose tool used to distribute Bash commands\naccross a selected range of computers within the Computer Science\ndepartment's network at Western Washington University.\neg; (405 lab, 162 lab, ect..)\n/" $BUILD_PATH/readme.txt
     echo "Adding nk_dispatch to your path...."
     echo "export PATH=\$PATH:/home/$(whoami)/.nk_dispatch" >> ~/.bashrc
+    echo "export PATH=\$PATH:/home/$(whoami)/.nk_dispatch" >> ~/.bashrc 
     cp ./SSH_dispatch.sh $BUILD_PATH/nk_dispatch
     chmod +x $BUILD_PATH/nk_dispatch
     source ~/.bashrc

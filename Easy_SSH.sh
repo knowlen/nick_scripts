@@ -24,10 +24,10 @@ if [ "$1" == "-h" ]; then
     "
     echo " 
    OPTIONS:
-   install  Adds the program to your path as 'easy_ssh' so it can be called
+   install  Adds the program to your path as 'cf' so it can be called
             easily from wherever. 
             Usage/Example: $./Easy_SSH install
-                           $ easy_ssh
+                           $ cf [lab] [machine] 
 
   "
     exit
@@ -35,10 +35,12 @@ fi
 
 if [ "$1" == "install" ]; then
     mkdir ~/.easy_ssh
-    cp ./Easy_SSH.sh ~/.easy_ssh/easy_ssh
-    echo "export PATH=\$PATH:/home/$(whoami)/.easy_ssh" >> ~/.bashrc
+    cp ./Easy_SSH.sh ~/.easy_ssh/cf
+    echo "export PATH=/home/$(whoami)/.easy_ssh:\$PATH" >> ~/.bashrc
+    echo "export PATH=/home/$(whoami)/.easy_ssh:\$PATH" >> ~/.bash_profile
     echo "done."
-    echo 'Usage: $easy_ssh '
+    echo 'Usage: $cf [lab] [machine]'
+    source ~/.bashrc
     exit
 fi
 if [ $# -lt 2 ]; then
