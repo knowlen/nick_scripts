@@ -109,8 +109,10 @@ if [ $ARG == "install" ]; then
     cp ./SSH_dispatch.sh $BUILD_PATH/nk_dispatch
     chmod +x $BUILD_PATH/nk_dispatch
     source ~/.bashrc
+    source ~/.bash_profile
     echo "done."
-    echo "See nk_dispatch --help for usage details."
+    echo 'See $nk_dispatch --help for usage details.'
+    echo 'NOTE: if $nk_dispatch not found, run $source ~/.bashrc.'
     exit
 fi
 
