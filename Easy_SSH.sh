@@ -8,6 +8,9 @@
 # network a little quicker.
 #
 
+
+uname=""
+
 if [ "$1" == "-h" ]; then
     echo
     echo "Easy SSH (h)  A quick SSH interface to use within the Computer Science 
@@ -66,28 +69,31 @@ if [[ $NODE == "cf408-"* ]]; then
  ssh -t -p922 $(whoami)@linux.cs.wwu.edu ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
  exit
 fi
+# on a normal lab computer
 if [[ $NODE == "cf"* || $NODE == "linux"* ]]; then 
+    echo "here"
     ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
+    
     exit
+
+# personal computer
 else
-# if on a personal computer 
-    file="./.SSH_last_uname.txt"
-    if [ -z ${1+x} ]; then
-        if [ -e "$file" ]; then
-            uname=$(cat ./.SSH_last_uname.txt)
-        else
-            echo -n "Username: "
-            read uname
-            echo $uname > $file
-        fi
+    file="./.easy_ssh/SSH_last_uname.txt"
+    #if [[ -z ${1+x} ]]; then
+    if [[ -e "$file" ]]; then
+        uname=$(cat ./.SSH_last_uname.txt)
     else
-        uname=$1
+        echo -n "Username: "
+        read uname
         echo $uname > $file
     fi
-    ssh -t -p922 $uname@linux.cs.wwu.edu ssh -p922 $(whoami)@cf"$x"-"$y".cs.wwu.edu
-    exit 
-
-# on a normal lab computer
+    #what's going on with this case
+    #else
+    #    echo "here here here"
+    #    uname=$1
+    #    echo $uname > $file
+    #fi
+    ssh -t -p922 $uname@linux.cs.wwu.edu ssh -p922 $uname@cf"$x"-"$y".cs.wwu.edu
 fi
 
 
