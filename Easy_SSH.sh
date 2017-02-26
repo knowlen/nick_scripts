@@ -78,21 +78,16 @@ if [[ $NODE == "cf"* || $NODE == "linux"* ]]; then
 
 # personal computer
 else
-    file="./.easy_ssh/SSH_last_uname.txt"
+    file="~/.easy_ssh/SSH_last_uname.txt"
     #if [[ -z ${1+x} ]]; then
     if [[ -e "$file" ]]; then
-        uname=$(cat ./.SSH_last_uname.txt)
+        uname=$(cat $file)
     else
         echo -n "Username: "
         read uname
         echo $uname > $file
     fi
-    #what's going on with this case
-    #else
-    #    echo "here here here"
-    #    uname=$1
-    #    echo $uname > $file
-    #fi
+    
     ssh -t -p922 $uname@linux.cs.wwu.edu ssh -p922 $uname@cf"$x"-"$y".cs.wwu.edu
 fi
 
