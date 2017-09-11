@@ -16,7 +16,7 @@ cd ~/.spotify
 
 wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.53.758.gde3fc4b2-33_amd64.deb
 
-ar -xf ./*.deb
+tar -xf ./*.deb
 tar -xf ./data*.tar.gz
 touch ~/.bashrc_copy
 touch ~/.bash_prof_copy
