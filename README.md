@@ -21,3 +21,6 @@ Most of the core functionality will work out of the box with just the script (eg
 
 #### Easy_SSH
 A simple interface for SSH that makes getting to whatever node you're trying to get to at WWU a little faster. You can also run __$./Easy_SSH install__ on this one and call commands like  __$cf 405 08__ to immediatley access machine 8 in CF405 from anywhere, even from your home computer! _(assuming you have Bash, Windows 10 and every other OS has bash -fyi)_. 
+
+#### spotify_no_root
+Installs spotify on CS lab computers without sudo. 
